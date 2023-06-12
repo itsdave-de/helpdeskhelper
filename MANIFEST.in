@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include helpdeskhelper *.css
+recursive-include helpdeskhelper *.csv
+recursive-include helpdeskhelper *.html
+recursive-include helpdeskhelper *.ico
+recursive-include helpdeskhelper *.js
+recursive-include helpdeskhelper *.json
+recursive-include helpdeskhelper *.md
+recursive-include helpdeskhelper *.png
+recursive-include helpdeskhelper *.py
+recursive-include helpdeskhelper *.svg
+recursive-include helpdeskhelper *.txt
+recursive-exclude helpdeskhelper *.pyc
