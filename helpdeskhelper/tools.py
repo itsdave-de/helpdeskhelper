@@ -4,6 +4,43 @@ from frappe.desk.form.assign_to import clear as assing_clear
 from frappe.desk.form.assign_to import get as assing_get
 import json
 
+@frappe.whitelist()
+def get_homescreen_content():
+    news_to_display = frappe.get_all("SSC News")
+    news = []
+    for n in news_to_display:
+        news_doc = frappe.get_doc("SSC News", n["name"])
+        news.append(news_doc)
+    return {"news": news}
+
+@frappe.whitelist()
+def app_get_tickets():
+    user_id = frappe.session.user
+    print(frappe.session)
+    ticket_ids = get_assigned_tickets_for_teams(user_id)
+    tickets = []
+    for id in ticket_ids:
+        ticket = frappe.get_doc("HD Ticket", id)
+      
+
+        tickets.append(ticket.__dict__)
+        #tickets.append(ticket)
+    print(tickets)
+    return tickets
+
+@frappe.whitelist()
+def get_user_id():
+    return frappe.session.user
+
+@frappe.whitelist()
+def set_ticket_field(ticket, field, value):
+    print("set ticket field called", ticket, field, value )
+    hd_ticket_doc = frappe.get_doc("HD Ticket", ticket)
+    print(hd_ticket_doc.owner)
+    setattr(hd_ticket_doc, "owner", value)
+    print(hd_ticket_doc.owner)
+    hd_ticket_doc.save()
+
 
 @frappe.whitelist()
 def get_teams(user_id):
@@ -70,7 +107,7 @@ def get_assigned_tickets_for_teams(user_id):
 		fields=["reference_name"],
 		filters={
 			"reference_type": "HD Ticket",
-			#"allocated_to": ["in", get_teams_members(user_id)],
+			"allocated_to": ["in", get_teams_members(user_id)],
 		}
 	)
     for ticket in tickets:
