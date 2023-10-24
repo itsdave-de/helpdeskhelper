@@ -6,7 +6,13 @@ import json
 
 @frappe.whitelist()
 def get_homescreen_content():
-    news_to_display = frappe.get_all("SSC News")
+   
+    roles = frappe.get_all("Has Role", filters={"parent": frappe.session.user, "role": "frappe_rezze-intern_lesen"}, fields=["role"])
+    print(roles)
+    if roles[0]["role"] == "frappe_rezze-intern_lesen":
+        news_to_display = frappe.get_all("SSC News")
+    else:
+        news_to_display = frappe.get_all("SSC News", filters={"kategorie": ["not in", "Mitteilungen Rezeption intern"]})
     news = []
     for n in news_to_display:
         news_doc = frappe.get_doc("SSC News", n["name"])
@@ -21,11 +27,11 @@ def app_get_tickets():
     tickets = []
     for id in ticket_ids:
         ticket = frappe.get_doc("HD Ticket", id)
-      
+        print(ticket.creation)
 
         tickets.append(ticket.__dict__)
         #tickets.append(ticket)
-    print(tickets)
+
     return tickets
 
 @frappe.whitelist()
