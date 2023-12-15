@@ -9,8 +9,9 @@ def get_homescreen_content():
    
     roles = frappe.get_all("Has Role", filters={"parent": frappe.session.user, "role": "frappe_rezze-intern_lesen"}, fields=["role"])
     print(roles)
-    if roles[0]["role"] == "frappe_rezze-intern_lesen":
-        news_to_display = frappe.get_all("SSC News")
+    if roles:
+        if roles[0]["role"] == "frappe_rezze-intern_lesen":
+            news_to_display = frappe.get_all("SSC News")
     else:
         news_to_display = frappe.get_all("SSC News", filters={"kategorie": ["not in", "Mitteilungen Rezeption intern"]})
     news = []
@@ -46,6 +47,18 @@ def set_ticket_field(ticket, field, value):
     setattr(hd_ticket_doc, "owner", value)
     print(hd_ticket_doc.owner)
     hd_ticket_doc.save()
+
+
+@frappe.whitelist()
+def set_ticket(data):
+    print("set ticket called", data )
+    hd_ticket_doc = frappe.get_doc("HD Ticket", data["name"])
+    if data["zaehlerstand"]:
+        if float(data["zaehlerstand"]) > 0:
+            hd_ticket_doc.custom_zählerstand = float(data["zaehlerstand"])
+    hd_ticket_doc.status = "Closed"
+    hd_ticket_doc.save()
+
 
 
 @frappe.whitelist()
