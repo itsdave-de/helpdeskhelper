@@ -113,23 +113,11 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"helpdeskhelper.tasks.all"
-#	],
-#	"daily": [
-#		"helpdeskhelper.tasks.daily"
-#	],
-#	"hourly": [
-#		"helpdeskhelper.tasks.hourly"
-#	],
-#	"weekly": [
-#		"helpdeskhelper.tasks.weekly"
-#	],
-#	"monthly": [
-#		"helpdeskhelper.tasks.monthly"
-#	],
-# }
+scheduler_events = {
+	"all": [
+		"helpdeskhelper.tools.apply_wiedervorlage"
+	]
+}
 
 # Testing
 # -------
