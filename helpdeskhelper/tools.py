@@ -126,15 +126,15 @@ def set_ticket(data):
                     return
     
 
-    #in other cases, we close the ticket
-    print("set ticket called, closing ticket", data )
+    # Close Ticket in other cases
     hd_ticket_doc = frappe.get_doc("HD Ticket", data["name"])
-    if data["zaehlerstand"]:
-        if float(data["zaehlerstand"]) > 0:
-            hd_ticket_doc.custom_zählerstand = float(data["zaehlerstand"])
+    
+    if data.get("zaehlerstand") and float(data["zaehlerstand"]) > 0:
+        hd_ticket_doc.custom_zählerstand = float(data["zaehlerstand"])
     hd_ticket_doc.status = "Closed"
     hd_ticket_doc.save()
     return "Ticket closed successfully"
+
 
 
 def apply_wiedervorlage():
@@ -359,9 +359,13 @@ def check_is_allready_assigned(ticketId):
 
 @frappe.whitelist()
 def remove_assignment(ticketId):
-    res = assing_clear("HD Ticket", str(ticketId))
-    print(res)
-    return res
+    if is_last_entry_by_current_user(ticketId):
+        res = assing_clear("HD Ticket", str(ticketId))
+        print(res)
+        return res
+    else:
+        frappe.throw("Ticket konnte nicht freigegeben werden. Bitte erst einen Kommentar hinzufügen.")
+   
 
 @frappe.whitelist()
 def get_unassigned_tickets_of_my_teams(user_id):
@@ -409,3 +413,52 @@ def get_settings():
         "Locations": Locations_list}
     
     return result
+
+
+def is_last_entry_by_current_user(ticket_id):
+    """
+    Checks if the last comment or communication on the HD Ticket is by the currently logged-in user,
+    ignoring entries where content ends with "hat sich diese Aufgabe selbst zugewiesen: selbst per App zugewiesen."
+    """
+    def get_last_relevant_entry(ticket_id):
+        """
+        Retrieves the last relevant comment or communication, ignoring entries with specific content.
+        """
+        # Get the last few comments (in case we need to skip some)
+        comments = frappe.get_all(
+            "Comment", 
+            filters={"reference_doctype": "HD Ticket", "reference_name": ticket_id}, 
+            fields=["name", "owner", "creation", "subject", "content"],
+            order_by="creation desc", 
+            limit_page_length=5
+        )
+
+        # Get the last few communications (in case we need to skip some)
+        communications = frappe.get_all(
+            "Communication", 
+            filters={"reference_doctype": "HD Ticket", "reference_name": ticket_id},
+            fields=["name", "owner", "creation", "subject", "content"],
+            order_by="creation desc", 
+            limit_page_length=5
+        )
+
+        # Combine and sort by creation date
+        entries = comments + communications
+        entries = sorted(entries, key=lambda x: x['creation'], reverse=True)
+
+        # Iterate over the entries to find the first relevant one
+        for entry in entries:
+            if not entry['content'].strip().endswith("hat sich diese Aufgabe selbst zugewiesen: selbst per App zugewiesen."):
+                return entry
+
+        return None
+
+    # Get the last relevant entry
+    last_entry = get_last_relevant_entry(ticket_id)
+    
+    if last_entry:
+        print("last entry check: ", last_entry, frappe.session.user)
+        # Check if the last entry was made by the currently logged-in user
+        return last_entry.get('owner') == frappe.session.user
+    else:
+        return False  # No relevant comments or communications found
