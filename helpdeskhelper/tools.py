@@ -37,6 +37,18 @@ def convert_to_unix_timestamp(dt):
         print("Exception occurred in convert_to_unix_timestamp:", str(e))
         raise e
 
+
+def translate_location_for_app(ssc_standort, ssc_standorte=None):
+    if not ssc_standorte:
+        ssc_standorte = frappe.get_all("SSC Standort", fields=["name", "caption", "app_caption"])
+    for el in ssc_standorte:
+            if el["name"] == ssc_standort:
+                if el["app_caption"]:
+                    ssc_standort = el["app_caption"]
+                else:
+                    ssc_standort = el["caption"]
+    return ssc_standort
+
 @frappe.whitelist()
 def app_get_tickets():
     try:
@@ -46,6 +58,9 @@ def app_get_tickets():
         ticket_ids = get_tickets_for_my_teams(user_id)
         print("Ticket IDs:", ticket_ids)
         
+        ssc_standorte = frappe.get_all("SSC Standort", fields=["name", "caption", "app_caption"])
+
+
         tickets = []
         for id in ticket_ids:
             ticket = frappe.get_doc("HD Ticket", id)
@@ -57,6 +72,8 @@ def app_get_tickets():
                 print(ticket.custom_wiedervorlage)
             else:
                 ticket.custom_wiedervorlage = 0
+            # Replace Location
+            ticket.custom_ort_bezeichnung = translate_location_for_app(ticket.custom_ort, ssc_standorte)
             tickets.append(ticket.__dict__)
         
         return tickets
@@ -79,9 +96,17 @@ def set_ticket_field(ticket, field, value):
 
 
 @frappe.whitelist()
-def set_ticket(data):
+def set_ticket(data, command=False):
     print(data)
     app_settings = frappe.get_single("Helpdesk App Settings")
+
+    if command == "set_warten":
+        hd_ticket_doc = frappe.get_doc("HD Ticket", data["name"])
+        hd_ticket_doc.priority = "Warten"
+        hd_ticket_doc.custom_color = frappe.get_value("HD Ticket Priority", "Warten", "custom_color")
+        hd_ticket_doc.save()
+        remove_assignment(hd_ticket_doc.name)
+        return "Ticket set to priority=Warten."
 
     if data["name"] == "Neues Ticket":
         print("ertelle neues Ticket ", data["subject"], data["description"] )
@@ -112,7 +137,7 @@ def set_ticket(data):
                 else:
                     frappe.throw("Zählerstand Anfang muss > 0 sein")
                     return
-            if str(data["custom_strom_prozess"]) == "abgereist":
+            if str(data["custom_strom_prozess"]) == "hochgestellt":
                 if float(data["custom_zählerstand_ende"]) > 0:
                     hd_ticket_doc.custom_zählerstand_ende = float(data["custom_zählerstand_ende"])
                     hd_ticket_doc.custom_strom_prozess = "runtergestellt"
@@ -156,9 +181,10 @@ def apply_wiedervorlage():
             if hd_ticket_doc.status not in ["Closed", "Resolved"]:
                 hd_ticket_doc.status = "Open"
             # Spezialfall strom rauf-runter-ablesen bei abreise des Gastes
-            if str(hd_ticket_doc.ticket_type).lower() == "strom rauf-runter-ablesen":
-                print("setting to abgereist")
-                hd_ticket_doc.custom_strom_prozess = "abgereist"
+            # 21.08.24: sollte eigentlich nicht mehr notwendig sein.
+            # if str(hd_ticket_doc.ticket_type).lower() == "strom rauf-runter-ablesen":
+            #     print("setting to abgereist")
+            #     hd_ticket_doc.custom_strom_prozess = "abgereist"
             hd_ticket_doc.custom_wiedervorlage = None
             hd_ticket_doc.save()
     frappe.db.commit()
@@ -359,6 +385,12 @@ def check_is_allready_assigned(ticketId):
 
 @frappe.whitelist()
 def remove_assignment(ticketId):
+    hd_ticket_doc = frappe.get_doc("HD Ticket", ticketId)
+    if hd_ticket_doc.ticket_type == "Strom rauf-runter-ablesen":
+        res = assing_clear("HD Ticket", str(ticketId))
+        print(res)
+        return res
+
     if is_last_entry_by_current_user(ticketId):
         res = assing_clear("HD Ticket", str(ticketId))
         print(res)
@@ -462,3 +494,29 @@ def is_last_entry_by_current_user(ticket_id):
         return last_entry.get('owner') == frappe.session.user
     else:
         return False  # No relevant comments or communications found
+
+
+
+@frappe.whitelist()
+def app_get_anleitungen():
+    try:
+        # Query the File doctype for files in the "anleitungen" folder
+        files = frappe.get_all(
+            'File',
+            filters={'folder': 'Home/Anleitungen'},  # Adjust the path if necessary
+            fields=['name', 'file_name', 'file_url', 'file_size']
+        )
+
+        if not files:
+            return {
+                'message': _("No files found in the 'anleitungen' folder.")
+            }
+
+        return {
+            'message': files
+        }
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "app_get_anleitungen")
+        return {
+            'error': str(e)
+        }
