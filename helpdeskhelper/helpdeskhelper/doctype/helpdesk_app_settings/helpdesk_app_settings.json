@@ -9,7 +9,8 @@
  "field_order": [
   "closed_tickets_sync_count",
   "default_ticket_type",
-  "default_zugang"
+  "default_zugang",
+  "mail_active"
  ],
  "fields": [
   {
@@ -31,12 +32,18 @@
    "fieldtype": "Select",
    "label": "Default Zugang",
    "options": "\nja\nnein"
+  },
+  {
+   "default": "0",
+   "fieldname": "mail_active",
+   "fieldtype": "Check",
+   "label": "Benachrichtigung \u00fcber \u00c4nderungen in Tickets aktivieren"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-02 19:17:40.111560",
+ "modified": "2024-10-09 10:53:45.993043",
  "modified_by": "Administrator",
  "module": "Helpdeskhelper",
  "name": "Helpdesk App Settings",
