@@ -97,7 +97,8 @@ def set_ticket_field(ticket, field, value):
 
 @frappe.whitelist()
 def set_ticket(data, command=False):
-    print(data)
+
+    print("recieved data: ", data, command)
     app_settings = frappe.get_single("Helpdesk App Settings")
 
     if command == "set_warten":
@@ -106,21 +107,43 @@ def set_ticket(data, command=False):
         hd_ticket_doc.custom_color = frappe.get_value("HD Ticket Priority", "Warten", "custom_color")
         hd_ticket_doc.save()
         remove_assignment(hd_ticket_doc.name)
-        return "Ticket set to priority=Warten."
+        return {"name": hd_ticket_doc.name, "message": "Ticket set to priority=Warten."}
 
     if data["name"] == "Neues Ticket":
         print("ertelle neues Ticket ", data["subject"], data["description"] )
-        agent_group = get_teams(frappe.session.user)[0]
-        hd_ticket_doc = frappe.get_doc({
+        # Check if agent_group is provided or get user's teams
+        if data.get("agent_group"):
+            agent_group = data.get("agent_group")
+        else:
+            user_teams = get_teams(frappe.session.user)
+            if not user_teams:
+                frappe.throw("Kein Team zugewiesen. Bitte wenden Sie sich an Ihren Administrator, um einem HD Team zugewiesen zu werden.")
+            agent_group = user_teams[0]
+            
+        ticket_details = {
             "doctype": "HD Ticket",
             "subject": str(data["subject"]),
             "description": str(data["description"]),
             "agent_group": agent_group,
             "custom_zugang": app_settings.default_zugang,
-            "ticket_type":app_settings.default_ticket_type}
-            )
+            "ticket_type":app_settings.default_ticket_type
+        }
+
+        if data.get("custom_ort"):
+            ssc_standort_caption = data.get("custom_ort")
+            # Find SSC Standort by caption
+            ssc_standort_doc = frappe.get_all("SSC Standort", filters={"caption": ssc_standort_caption}, fields=["name"], limit=1)
+            if ssc_standort_doc:
+                ticket_details["custom_ort"] = ssc_standort_doc[0].name
+            else:
+                # Optionally, handle the case where the location is not found
+                print(f"SSC Standort with caption '{ssc_standort_caption}' not found.")
+                # You might want to throw an error or set a default/leave it blank
+                # For now, it will just not be set if not found.
+
+        hd_ticket_doc = frappe.get_doc(ticket_details)
         hd_ticket_doc.insert()
-        return "Ticket created sucessfully"
+        return {"name": hd_ticket_doc.name, "message": "Ticket created successfully"}
     
     if "ticket_type" in data.keys():
         if str(data["ticket_type"]).lower() == "strom rauf-runter-ablesen":
@@ -133,7 +156,7 @@ def set_ticket(data, command=False):
                     hd_ticket_doc.status = "Replied"
                     hd_ticket_doc.save()
                     remove_assignment(hd_ticket_doc.name)
-                    return "Ticket updated sucessfully"
+                    return {"name": hd_ticket_doc.name, "message": "Ticket updated sucessfully"}
                 else:
                     frappe.throw("Zählerstand Anfang muss > 0 sein")
                     return
@@ -145,7 +168,7 @@ def set_ticket(data, command=False):
                     hd_ticket_doc.status = "Closed"
                     hd_ticket_doc.save()
                     remove_assignment(hd_ticket_doc.name)
-                    return "Ticket updated sucessfully"
+                    return {"name": hd_ticket_doc.name, "message": "Ticket updated sucessfully"}
                 else:
                     frappe.throw("Zählerstand Anfang muss > 0 sein")
                     return
@@ -158,7 +181,7 @@ def set_ticket(data, command=False):
         hd_ticket_doc.custom_zählerstand = float(data["zaehlerstand"])
     hd_ticket_doc.status = "Closed"
     hd_ticket_doc.save()
-    return "Ticket closed successfully"
+    return {"name": hd_ticket_doc.name, "message": "Ticket closed successfully"}
 
 
 
