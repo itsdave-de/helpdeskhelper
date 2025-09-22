@@ -10,7 +10,8 @@
   "closed_tickets_sync_count",
   "default_ticket_type",
   "default_zugang",
-  "mail_active"
+  "mail_active",
+  "helpdesk_app_settings_supersearch_role"
  ],
  "fields": [
   {
@@ -38,12 +39,19 @@
    "fieldname": "mail_active",
    "fieldtype": "Check",
    "label": "Benachrichtigung \u00fcber \u00c4nderungen in Tickets aktivieren"
+  },
+  {
+   "description": "Legt fest, welche Rollen den Supersearch App-Endpunkt benutzen d\u00fcrfen",
+   "fieldname": "helpdesk_app_settings_supersearch_role",
+   "fieldtype": "Table MultiSelect",
+   "label": "Helpdesk App Settings Supersearch Role",
+   "options": "Helpdesk App Settings Supersearch Role"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-10-09 10:53:45.993043",
+ "modified": "2025-08-20 14:13:55.549302",
  "modified_by": "Administrator",
  "module": "Helpdeskhelper",
  "name": "Helpdesk App Settings",
