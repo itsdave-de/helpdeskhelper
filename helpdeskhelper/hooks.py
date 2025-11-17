@@ -102,6 +102,11 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
+doc_events = {
+	"Assignment Rule": {
+		"before_save": "helpdeskhelper.overrides.keep_assignment_rules_empty"
+	}
+}
 # doc_events = {
 #	"*": {
 #		"on_update": "method",
