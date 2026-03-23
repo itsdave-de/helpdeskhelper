@@ -6,24 +6,22 @@ import frappe
 
 def keep_assignment_rules_empty(doc, method):
 	"""
-	Prevent automatic ticket assignment by keeping assignment rules empty.
+	Prevent automatic ticket assignment by disabling assignment rules
+	for HD Tickets and keeping their users list empty.
 
-	Assignment rules need users to assign to - if the users list is empty,
-	they can't assign anyone even if enabled.
+	The helpdesk app automatically creates and enables assignment rules
+	when agents are added to teams (HDTeam.update_support_rotations).
+	This hook intercepts the save to ensure the rules stay disabled.
 
-	This prevents the helpdesk app from automatically enabling support rotation
-	when agents are added to teams. Manual ticket assignment still works normally.
+	Without this, an enabled rule with no users causes an IndexError
+	in the round-robin assignment logic.
 
 	Args:
 		doc: Assignment Rule document
 		method: Event method (before_save)
 	"""
-	if doc.document_type == "HD Ticket" and doc.users:
-		# Clear all users from HD Ticket assignment rules
-		doc.users = []
-		frappe.msgprint(
-			"Assignment Rule users list has been cleared to prevent automatic ticket assignment. "
-			"Use manual assignment instead.",
-			alert=True,
-			indicator="orange"
-		)
+	if doc.document_type == "HD Ticket":
+		if doc.users:
+			doc.users = []
+		if not doc.disabled:
+			doc.disabled = 1
