@@ -1,0 +1,139 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-21 15:00:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ticket",
+  "template",
+  "title",
+  "status",
+  "progress_section",
+  "total_tasks",
+  "column_break_progress",
+  "completed_tasks",
+  "items_section",
+  "items"
+ ],
+ "fields": [
+  {
+   "default": "HDA-CL-.########",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "HDA-CL-.########",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ticket",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ticket",
+   "options": "HD Ticket",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vorlage",
+   "options": "HDA Checklist Template",
+   "read_only": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Titel"
+  },
+  {
+   "default": "Aktiv",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Aktiv\nAbgeschlossen",
+   "read_only": 1
+  },
+  {
+   "fieldname": "progress_section",
+   "fieldtype": "Section Break",
+   "label": "Fortschritt"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_tasks",
+   "fieldtype": "Int",
+   "label": "Aufgaben gesamt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_progress",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Erledigt + Nicht benötigt",
+   "fieldname": "completed_tasks",
+   "fieldtype": "Int",
+   "label": "Bearbeitet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "HDA Checklist Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-21 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Helpdeskhelper",
+ "name": "HDA Checklist",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "role": "Agent Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Agent",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}

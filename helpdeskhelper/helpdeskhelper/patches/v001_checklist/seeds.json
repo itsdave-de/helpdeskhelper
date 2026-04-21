@@ -1,0 +1,917 @@
+[
+  {
+    "ofork_id": 1,
+    "title": "Eintritt Mitarbeiter",
+    "description": "Checkliste für neue Mitarbeiter Erstellung Suedsee-Camp",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 11,
+        "name": "Personalangelegenheiten"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 2,
+        "name": "Mitarbeiter Eintritt"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "User System Zugänge Allgemein"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "LDAP Account"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Task",
+        "task": "Teams Account"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "ELO Account"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Task",
+        "task": "Datev Account"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Task",
+        "task": "Zeus Zugang"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Task",
+        "task": "G-Data Schulungsportal"
+      },
+      {
+        "fieldorder": 8,
+        "field_type": "Headline",
+        "task": "User Zugänge SSC"
+      },
+      {
+        "fieldorder": 9,
+        "field_type": "Task",
+        "task": "CompuSoft Account"
+      },
+      {
+        "fieldorder": 10,
+        "field_type": "Task",
+        "task": "Cara Camp Account"
+      },
+      {
+        "fieldorder": 11,
+        "field_type": "Task",
+        "task": "HKS Account"
+      },
+      {
+        "fieldorder": 12,
+        "field_type": "Headline",
+        "task": "User Zugänge Caravans"
+      },
+      {
+        "fieldorder": 13,
+        "field_type": "Task",
+        "task": "Cavio Account"
+      },
+      {
+        "fieldorder": 14,
+        "field_type": "Headline",
+        "task": "User Berechtigungen"
+      },
+      {
+        "fieldorder": 15,
+        "field_type": "Task",
+        "task": "erweiterte Berechtigungen Fs1"
+      },
+      {
+        "fieldorder": 16,
+        "field_type": "Task",
+        "task": "erweiterte Berechtigungen Mail"
+      },
+      {
+        "fieldorder": 17,
+        "field_type": "Task",
+        "task": "Coin Türzylinder Berechtigungen"
+      },
+      {
+        "fieldorder": 18,
+        "field_type": "Task",
+        "task": "Coin Schranken Berechtigung"
+      },
+      {
+        "fieldorder": 19,
+        "field_type": "Task",
+        "task": "SSC Schlüsseltresor Zugang"
+      },
+      {
+        "fieldorder": 20,
+        "field_type": "Task",
+        "task": "Caravans Alarmanlage Zugang"
+      },
+      {
+        "fieldorder": 21,
+        "field_type": "Headline",
+        "task": "Personal Management"
+      },
+      {
+        "fieldorder": 22,
+        "field_type": "Task",
+        "task": "Kontaktpflege in Camp Apps"
+      },
+      {
+        "fieldorder": 23,
+        "field_type": "Task",
+        "task": "Kontaktpflege in I-Doit"
+      },
+      {
+        "fieldorder": 24,
+        "field_type": "Task",
+        "task": "Kontaktpflege in Bitwarden"
+      },
+      {
+        "fieldorder": 25,
+        "field_type": "Task",
+        "task": "Kontaktpflege in Telefonanlage"
+      },
+      {
+        "fieldorder": 26,
+        "field_type": "Task",
+        "task": "Mitarbeiterausweis"
+      },
+      {
+        "fieldorder": 27,
+        "field_type": "Headline",
+        "task": "Arbeitsplatz und Geräte"
+      },
+      {
+        "fieldorder": 28,
+        "field_type": "Task",
+        "task": "Ausgabe Notebook"
+      },
+      {
+        "fieldorder": 29,
+        "field_type": "Task",
+        "task": "Ausgabe Tablet"
+      },
+      {
+        "fieldorder": 30,
+        "field_type": "Task",
+        "task": "Ausgabe Mobiltelefon"
+      },
+      {
+        "fieldorder": 31,
+        "field_type": "Task",
+        "task": "Ausgabe Mobiler Arbeitsplatz Box"
+      },
+      {
+        "fieldorder": 32,
+        "field_type": "Task",
+        "task": "Mobiler Arbeitsplatz / VPN Zugang"
+      },
+      {
+        "fieldorder": 33,
+        "field_type": "Task",
+        "task": "BYOD Zugang"
+      },
+      {
+        "fieldorder": 34,
+        "field_type": "Headline",
+        "task": "Schulungen / Unterweisungen"
+      },
+      {
+        "fieldorder": 35,
+        "field_type": "Task",
+        "task": "Datenschutzschulung ohne IUK-Unterweisung"
+      },
+      {
+        "fieldorder": 36,
+        "field_type": "Task",
+        "task": "Datenschutzschulung inkl. IUK-Unterweisung"
+      },
+      {
+        "fieldorder": 37,
+        "field_type": "Task",
+        "task": "nur IUK-Unterweisung"
+      },
+      {
+        "fieldorder": 38,
+        "field_type": "Task",
+        "task": "Arbeitssicherheit Unterweisung"
+      }
+    ]
+  },
+  {
+    "ofork_id": 2,
+    "title": "Austritt Mitarbeiter",
+    "description": "Checkliste bei Austritt eines Mitarbeiters",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 11,
+        "name": "Personalangelegenheiten"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 3,
+        "name": "Mitarbeiter Austritt"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "User System Zugänge Allgemein deaktivieren"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "LDAP Account deaktivieren"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Task",
+        "task": "System Benutzerprofil entfernen"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "Teams Account deaktivieren"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Task",
+        "task": "ELO Account deaktivieren"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Task",
+        "task": "Datev Account deaktivieren"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Task",
+        "task": "Zeus Zugang deaktivieren"
+      },
+      {
+        "fieldorder": 8,
+        "field_type": "Task",
+        "task": "G-Data Schulungsportal deaktivieren"
+      },
+      {
+        "fieldorder": 9,
+        "field_type": "Headline",
+        "task": "User Zugänge SSC deaktivieren"
+      },
+      {
+        "fieldorder": 10,
+        "field_type": "Task",
+        "task": "CompuSoft Account deaktivieren"
+      },
+      {
+        "fieldorder": 11,
+        "field_type": "Task",
+        "task": "Cara Camp Account deaktivieren"
+      },
+      {
+        "fieldorder": 12,
+        "field_type": "Task",
+        "task": "HKS Account deaktivieren"
+      },
+      {
+        "fieldorder": 13,
+        "field_type": "Headline",
+        "task": "User Zugänge Caravans deaktivieren"
+      },
+      {
+        "fieldorder": 14,
+        "field_type": "Task",
+        "task": "Cavio Account deaktivieren"
+      },
+      {
+        "fieldorder": 15,
+        "field_type": "Headline",
+        "task": "User Berechtigungen deaktivieren"
+      },
+      {
+        "fieldorder": 16,
+        "field_type": "Task",
+        "task": "erweiterte Berechtigungen Fs1 löschen"
+      },
+      {
+        "fieldorder": 17,
+        "field_type": "Task",
+        "task": "erweiterte Berechtigungen Mail löschen"
+      },
+      {
+        "fieldorder": 18,
+        "field_type": "Task",
+        "task": "Coin Türzylinder Berechtigungen löschen"
+      },
+      {
+        "fieldorder": 19,
+        "field_type": "Task",
+        "task": "Coin Schranken Berechtigungen löschen"
+      },
+      {
+        "fieldorder": 20,
+        "field_type": "Task",
+        "task": "SSC Schlüsseltresor Zugang löschen"
+      },
+      {
+        "fieldorder": 21,
+        "field_type": "Task",
+        "task": "Caravans Alarmanlage Zugang löschen"
+      },
+      {
+        "fieldorder": 22,
+        "field_type": "Task",
+        "task": "BYOD Zugang löschen"
+      },
+      {
+        "fieldorder": 23,
+        "field_type": "Headline",
+        "task": "Personal Management deaktivieren"
+      },
+      {
+        "fieldorder": 24,
+        "field_type": "Task",
+        "task": "Kontakt aus Camp Apps entfernen"
+      },
+      {
+        "fieldorder": 25,
+        "field_type": "Task",
+        "task": "Kontakt aus I-doit entfernen"
+      },
+      {
+        "fieldorder": 26,
+        "field_type": "Task",
+        "task": "Kontakt aus Bitwarden löschen"
+      },
+      {
+        "fieldorder": 27,
+        "field_type": "Task",
+        "task": "Kontakt aus Telefonanlage löschen"
+      },
+      {
+        "fieldorder": 28,
+        "field_type": "Task",
+        "task": "Mitarbeiterausweis vernichten"
+      },
+      {
+        "fieldorder": 29,
+        "field_type": "Headline",
+        "task": "Hardware Rückgabe"
+      },
+      {
+        "fieldorder": 30,
+        "field_type": "Task",
+        "task": "Notebook zurück"
+      },
+      {
+        "fieldorder": 31,
+        "field_type": "Task",
+        "task": "Mobiltelefon zurück"
+      },
+      {
+        "fieldorder": 32,
+        "field_type": "Task",
+        "task": "Tablet zurück"
+      },
+      {
+        "fieldorder": 33,
+        "field_type": "Task",
+        "task": "Mobiler Arbeitsplatz Box zurück"
+      },
+      {
+        "fieldorder": 34,
+        "field_type": "Task",
+        "task": "Chip Coin zurück"
+      }
+    ]
+  },
+  {
+    "ofork_id": 3,
+    "title": "Änderung Mitarbeiter",
+    "description": "Checkliste bei Änderung bestehender Mitarbeiter",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 11,
+        "name": "Personalangelegenheiten"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 4,
+        "name": "Mitarbeiter Änderung"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "User System Zugänge Allgemein Änderung"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "Änderung LDAP Account"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Task",
+        "task": "Änderung Teams Account"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "Änderung ELO Account"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Task",
+        "task": "Änderung Datev Account"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Task",
+        "task": "Änderung Zeus Zugang"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Task",
+        "task": "Änderung G-Data Schulungsportal"
+      },
+      {
+        "fieldorder": 8,
+        "field_type": "Headline",
+        "task": "User Zugänge SSC Änderung"
+      },
+      {
+        "fieldorder": 9,
+        "field_type": "Task",
+        "task": "Änderung Compu Soft Account"
+      },
+      {
+        "fieldorder": 10,
+        "field_type": "Task",
+        "task": "Änderung Cara Camp Account"
+      },
+      {
+        "fieldorder": 11,
+        "field_type": "Task",
+        "task": "Änderung HKS Account"
+      },
+      {
+        "fieldorder": 12,
+        "field_type": "Headline",
+        "task": "User Zugänge Caravans Änderung"
+      },
+      {
+        "fieldorder": 13,
+        "field_type": "Task",
+        "task": "Änderung Cavio Account"
+      },
+      {
+        "fieldorder": 14,
+        "field_type": "Headline",
+        "task": "User Berechtigungen Änderung"
+      },
+      {
+        "fieldorder": 15,
+        "field_type": "Task",
+        "task": "Änderung Berechtigungen Fs1"
+      },
+      {
+        "fieldorder": 16,
+        "field_type": "Task",
+        "task": "Änderung Berechtigungen Mail"
+      },
+      {
+        "fieldorder": 17,
+        "field_type": "Task",
+        "task": "Änderung Coin Türzylinder Berechtigungen"
+      },
+      {
+        "fieldorder": 18,
+        "field_type": "Task",
+        "task": "Änderung Coin Schranken Berechtigungen"
+      },
+      {
+        "fieldorder": 19,
+        "field_type": "Task",
+        "task": "Änderung SSC Schlüsseltresor"
+      },
+      {
+        "fieldorder": 20,
+        "field_type": "Task",
+        "task": "Änderung Verkäuferkarte (Cavio)"
+      },
+      {
+        "fieldorder": 21,
+        "field_type": "Task",
+        "task": "Änderung Alarmanlage Hanfberg Zugang"
+      },
+      {
+        "fieldorder": 22,
+        "field_type": "Headline",
+        "task": "Personal Management Änderung"
+      },
+      {
+        "fieldorder": 23,
+        "field_type": "Task",
+        "task": "Änderung in Camp Apps"
+      },
+      {
+        "fieldorder": 24,
+        "field_type": "Task",
+        "task": "Änderung in I-doit"
+      },
+      {
+        "fieldorder": 25,
+        "field_type": "Task",
+        "task": "Änderung im Bitwarden"
+      },
+      {
+        "fieldorder": 26,
+        "field_type": "Task",
+        "task": "Änderung in der Telefonanlage"
+      },
+      {
+        "fieldorder": 27,
+        "field_type": "Task",
+        "task": "Mitarbeiterausweis erstellen/ändern"
+      },
+      {
+        "fieldorder": 28,
+        "field_type": "Headline",
+        "task": "Arbeitsplatz und Geräte Änderung"
+      },
+      {
+        "fieldorder": 29,
+        "field_type": "Task",
+        "task": "Änderung Notebook"
+      },
+      {
+        "fieldorder": 30,
+        "field_type": "Task",
+        "task": "Änderung Tablet"
+      },
+      {
+        "fieldorder": 31,
+        "field_type": "Task",
+        "task": "Änderung Mobiltelefon"
+      },
+      {
+        "fieldorder": 32,
+        "field_type": "Task",
+        "task": "Änderung Mobiler Arbeitsplatz Box"
+      },
+      {
+        "fieldorder": 33,
+        "field_type": "Task",
+        "task": "Änderung Mobiler Arbeitsplatz / VPN Zugang"
+      },
+      {
+        "fieldorder": 34,
+        "field_type": "Task",
+        "task": "Änderung BYOD Zugang"
+      },
+      {
+        "fieldorder": 35,
+        "field_type": "Headline",
+        "task": "nachträgliche Schulungen"
+      },
+      {
+        "fieldorder": 36,
+        "field_type": "Task",
+        "task": "nachträgliche Datenschutzschulung inkl. IUK"
+      },
+      {
+        "fieldorder": 37,
+        "field_type": "Task",
+        "task": "nachträgliche Datenschutzschulung ohne IUK"
+      },
+      {
+        "fieldorder": 38,
+        "field_type": "Task",
+        "task": "nachträgliche IUK-Unterweisung"
+      },
+      {
+        "fieldorder": 39,
+        "field_type": "Task",
+        "task": "nachträgliche Arbeitssicherheit Unterweisung"
+      }
+    ]
+  },
+  {
+    "ofork_id": 4,
+    "title": "Eintritt Praktikant Suedsee-Camp",
+    "description": "Checkliste für neue Praktikant Erstellung Suedsee-Camp",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 11,
+        "name": "Personalangelegenheiten"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 5,
+        "name": "Praktikant Eintritt"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "Praktikant System Account"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "LDAP Account_Praktikant erstellen"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Headline",
+        "task": "Praktikant Software Zugänge"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "CompuSoft Test Account"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Headline",
+        "task": "Praktikant Schulungen"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Task",
+        "task": "Datenschutzschulung inkl. IUK_verkürzt"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Task",
+        "task": "Arbeitssicherheit Unterweisung angepasst"
+      }
+    ]
+  },
+  {
+    "ofork_id": 5,
+    "title": "Austritt Praktikant Suedsee-Camp",
+    "description": "Checkliste bei Austritt eines Praktikanten",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 11,
+        "name": "Personalangelegenheiten"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 6,
+        "name": "Praktikant Austritt"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "Praktikant System Account Löschung"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "LDAP Account_Praktikant löschen"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Headline",
+        "task": "Praktikant Software Zugänge Löschung"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "CompuSoft Test Account löschen"
+      }
+    ]
+  },
+  {
+    "ofork_id": 6,
+    "title": "Projektplanung",
+    "description": "Checkliste zu Projektplanungs-Tickets",
+    "set_article": true,
+    "ofork_queues": [
+      {
+        "id": 12,
+        "name": "Projektplanung"
+      }
+    ],
+    "ofork_services": [
+      {
+        "id": 8,
+        "name": "Projektplanung"
+      }
+    ],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "Projekt Bestandteile"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Task",
+        "task": "*Hardware*"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Task",
+        "task": "*Software*"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Task",
+        "task": "*Clouddienste*"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Headline",
+        "task": "für welche Abteilung?"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Task",
+        "task": "*Geschäftsleitung*"
+      },
+      {
+        "fieldorder": 8,
+        "field_type": "Task",
+        "task": "*EDV-Abteilung*"
+      },
+      {
+        "fieldorder": 9,
+        "field_type": "Task",
+        "task": "*Rezeption*"
+      },
+      {
+        "fieldorder": 10,
+        "field_type": "Task",
+        "task": "*Personalabteilung*"
+      },
+      {
+        "fieldorder": 11,
+        "field_type": "Task",
+        "task": "*Buchhaltung*"
+      },
+      {
+        "fieldorder": 12,
+        "field_type": "Task",
+        "task": "*Reiseabteilung*"
+      },
+      {
+        "fieldorder": 13,
+        "field_type": "Task",
+        "task": "*Werkstatt_Hof*"
+      },
+      {
+        "fieldorder": 14,
+        "field_type": "Task",
+        "task": "*Caravans*"
+      },
+      {
+        "fieldorder": 15,
+        "field_type": "Task",
+        "task": "Schwimmbad"
+      },
+      {
+        "fieldorder": 16,
+        "field_type": "Task",
+        "task": "Piratennest"
+      },
+      {
+        "fieldorder": 17,
+        "field_type": "Headline",
+        "task": "Implementierung"
+      },
+      {
+        "fieldorder": 18,
+        "field_type": "Task",
+        "task": "*Planung*"
+      },
+      {
+        "fieldorder": 19,
+        "field_type": "Task",
+        "task": "*Kostenplanung*"
+      },
+      {
+        "fieldorder": 20,
+        "field_type": "Task",
+        "task": "Angebot"
+      },
+      {
+        "fieldorder": 21,
+        "field_type": "Task",
+        "task": "*Vorstellung*"
+      },
+      {
+        "fieldorder": 22,
+        "field_type": "Task",
+        "task": "Freigabe erteilt"
+      },
+      {
+        "fieldorder": 23,
+        "field_type": "Task",
+        "task": "Bestellung ausgelöst"
+      },
+      {
+        "fieldorder": 24,
+        "field_type": "Task",
+        "task": "*Testphase*"
+      },
+      {
+        "fieldorder": 25,
+        "field_type": "Task",
+        "task": "*Systemintegration*"
+      },
+      {
+        "fieldorder": 26,
+        "field_type": "Headline",
+        "task": "in Betrieb"
+      },
+      {
+        "fieldorder": 27,
+        "field_type": "Task",
+        "task": "*Schulungen*"
+      }
+    ]
+  },
+  {
+    "ofork_id": 7,
+    "title": "GData Academy Prüfen",
+    "description": "Wiederkehrende Prüfung der Benutzer der Academy",
+    "set_article": false,
+    "ofork_queues": [
+      {
+        "id": 17,
+        "name": "Gdata Academy"
+      }
+    ],
+    "ofork_services": [],
+    "items": [
+      {
+        "fieldorder": 1,
+        "field_type": "Headline",
+        "task": "LDAP Aufgaben"
+      },
+      {
+        "fieldorder": 2,
+        "field_type": "Task",
+        "task": "Prüfung / Erfassung eingestellten Mitarbeiter letzen Monat (idoit)"
+      },
+      {
+        "fieldorder": 3,
+        "field_type": "Task",
+        "task": "Prüfung der Zuweisung der korrekten LDAP Gdata Gruppen"
+      },
+      {
+        "fieldorder": 4,
+        "field_type": "Headline",
+        "task": "GData Academy"
+      },
+      {
+        "fieldorder": 5,
+        "field_type": "Task",
+        "task": "erstes Einloggen der Benutzer in der GData Academy"
+      },
+      {
+        "fieldorder": 6,
+        "field_type": "Task",
+        "task": "Prüfung der korrekten Kurszuweisung"
+      },
+      {
+        "fieldorder": 7,
+        "field_type": "Headline",
+        "task": "Anschreiben per Mail"
+      },
+      {
+        "fieldorder": 8,
+        "field_type": "Task",
+        "task": "Massenmail alle BCC eintragen, Vorlage hat Pierre"
+      }
+    ]
+  }
+]

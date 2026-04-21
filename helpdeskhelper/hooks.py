@@ -37,7 +37,11 @@ boot_session = "helpdeskhelper.boot.remove_helpdesk_permission_hooks"
 doc_events = {
 	"Assignment Rule": {
 		"before_save": "helpdeskhelper.overrides.keep_assignment_rules_empty"
-	}
+	},
+	"HD Ticket": {
+		"after_insert": "helpdeskhelper.checklist.assignment.apply_rules_on_create",
+		"on_update": "helpdeskhelper.checklist.assignment.apply_rules_on_update",
+	},
 }
 
 # Scheduled Tasks

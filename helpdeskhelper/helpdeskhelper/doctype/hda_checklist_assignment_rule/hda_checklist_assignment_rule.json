@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2026-04-21 15:00:00.000000",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "enabled",
+  "priority",
+  "template",
+  "filters_section",
+  "filter_team",
+  "column_break_filters",
+  "filter_ticket_type",
+  "behavior_section",
+  "trigger_event",
+  "apply_once"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Titel",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Aktiv"
+  },
+  {
+   "default": "100",
+   "description": "Höhere Werte zuerst. Bei gleichzeitigem Treffer mehrerer Regeln entscheidet die Priorität.",
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priorität"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Vorlage",
+   "options": "HDA Checklist Template",
+   "reqd": 1
+  },
+  {
+   "description": "Alle gesetzten Filter müssen zutreffen (UND-Verknüpfung).",
+   "fieldname": "filters_section",
+   "fieldtype": "Section Break",
+   "label": "Filter"
+  },
+  {
+   "fieldname": "filter_team",
+   "fieldtype": "Link",
+   "label": "Team",
+   "options": "HD Team"
+  },
+  {
+   "fieldname": "column_break_filters",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "filter_ticket_type",
+   "fieldtype": "Link",
+   "label": "Ticket Type",
+   "options": "HD Ticket Type"
+  },
+  {
+   "fieldname": "behavior_section",
+   "fieldtype": "Section Break",
+   "label": "Verhalten"
+  },
+  {
+   "default": "On Create",
+   "description": "On Create: beim Anlegen des Tickets prüfen. On Update: zusätzlich bei jedem Update (z.B. nach Team-Wechsel).",
+   "fieldname": "trigger_event",
+   "fieldtype": "Select",
+   "label": "Trigger",
+   "options": "On Create\nOn Update",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "description": "Vorlage pro Ticket nur einmal anhängen (auch wenn Regel erneut greift).",
+   "fieldname": "apply_once",
+   "fieldtype": "Check",
+   "label": "Nur einmal pro Ticket"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-21 15:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Helpdeskhelper",
+ "name": "HDA Checklist Assignment Rule",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Agent Manager"
+  }
+ ],
+ "sort_field": "priority",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
