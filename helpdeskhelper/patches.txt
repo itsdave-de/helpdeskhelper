@@ -5,3 +5,4 @@
 [post_model_sync]
 # Patches added in this section will be executed after doctypes are migrated
 helpdeskhelper.helpdeskhelper.patches.v001_checklist.seed_templates
+helpdeskhelper.helpdeskhelper.patches.v002_checklist_rules.seed_rules
