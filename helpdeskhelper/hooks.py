@@ -7,6 +7,10 @@ app_description = "Helpdeskhelper"
 app_email = "dev@itsdave.de"
 app_license = "MIT"
 
+override_whitelisted_methods = {
+    "uploadfile": "helpdeskhelper.legacy_upload.uploadfile",
+}
+
 # DocType Class Override
 # ----------------------
 # Fix: on_communication_update calls self.save() during insert, causing
