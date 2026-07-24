@@ -28,6 +28,16 @@ from helpdesk.helpdesk.doctype.hd_ticket.hd_ticket import HDTicket as _OriginalH
 
 
 class HDTicket(_OriginalHDTicket):
+	def after_insert(self):
+		super().after_insert()
+		if self.get("description"):
+			# Die aus der Beschreibung erzeugte Erst-Communication wird von
+			# update_comment_in_doc in _comments gespiegelt und laesst die
+			# Kommentar-Sprechblase der Listenansicht sofort 1 zeigen.
+			# _comments ist nur der Anzeige-Cache; die Communication selbst
+			# (Ticketverlauf) bleibt unangetastet.
+			self.db_set("_comments", None, update_modified=False)
+
 	def on_communication_update(self, c):
 		if c.sent_or_received == "Received":
 			if self.has_agent_replied:
